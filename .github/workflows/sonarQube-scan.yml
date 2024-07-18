@@ -1,14 +1,14 @@
 name: sonarQube-scan
-on:
-  push:
-    branches:
-      - main # the name of your main branch
-  pull_request:
-    types: [opened, synchronize, reopened]
+on: workflow_dispatch
+ # push:
+    #branches:
+     # - main # the name of your main branch
+ # pull_request:
+  #  types: [opened, synchronize, reopened]
 jobs:
   build:
     name: Build
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
