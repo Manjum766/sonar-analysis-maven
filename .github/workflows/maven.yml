@@ -25,7 +25,7 @@ jobs:
       - name: Build
         run: mvn clean install
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v4.1.0
+        uses: SonarSource/sonarqube-scan-action@v4
         with:
           projectBaseDir: .
           args: >
