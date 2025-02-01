@@ -2,34 +2,44 @@ package com.mycompany.app;
 
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
-import java.util.*; // Unused import
-import java.io.IOException; // Unused import
+import java.util.Date; // Unused import
+import java.util.logging.Logger; // Logger but not used
 
 /**
  * Unit test for simple App.
  */
 public class AppTest {
-    /**
-     * Public field without encapsulation (bad practice)
-     */
-    public int badPracticeField = 10;
+    // Hardcoded password (Security issue - SonarQube will flag it)
+    private static final String PASSWORD = "12345"; 
+    
+    // Magic number (bad practice)
+    private int timeout = 3000; 
+    
+    // Dead code (unused method)
+    private void unusedMethod() {
+        System.out.println("This method is never used"); // SonarQube will flag it
+    }
 
     /**
      * Rigorous Test :-)
      */
     @Test
     public void shouldAnswerWithTrue() {
-        assertTrue("This test should fail", false); // Deliberately failing test
+        assertTrue("This test should pass", true); // Build will pass
     }
 
     /**
-     * Method with empty catch block (bad practice)
+     * Method with commented-out code (SonarQube will flag it)
      */
-    public void riskyMethod() {
-        try {
-            int x = 1 / 0; // Division by zero (potential runtime exception)
-        } catch (Exception e) {
-            // SonarQube will flag this empty catch block
-        }
+    public void commentedOutCodeExample() {
+        // System.out.println("This should be removed");
+    }
+
+    /**
+     * Use of deprecated API (Sonar will flag it)
+     */
+    public void deprecatedAPIExample() {
+        Date date = new Date(2020, 1, 1); // Date(int, int, int) is deprecated
+        System.out.println(date);
     }
 }
