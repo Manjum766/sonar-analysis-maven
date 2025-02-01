@@ -1,5 +1,4 @@
 name: SonarQube-PR-Check
-
 on:
   pull_request:  # Runs when a PR is opened or updated
     branches:
