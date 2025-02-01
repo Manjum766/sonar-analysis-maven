@@ -1,9 +1,10 @@
 name: SonarQube-PR-Check
+
 on:
   pull_request:  # Runs when a PR is opened or updated
     branches:
       - main  # Change this to your default branch
-
+  workflow_dispatch:
 jobs:
   sonarqube:
     runs-on: ubuntu-latest
